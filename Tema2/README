@@ -1,0 +1,58 @@
+Dieaconu F. Vlad Stefan
+Grupa 311 CA
+
+Tema de casă 2 - Honeycomb
+
+
+
+	Pentru a avea un cod usor de urmarit si aerisit am folosit urmatoarele
+functii:
+
+	- alloc_matrix: metoda "eleganta" de alocare a matricei
+	- print_image: functie ce printeaza matricea
+	- find_maximum: functie ce calculeaza maximul
+ 
+	Primul pas in rezolvarea temei este citirea, linie cu linie, a datelor de 
+intrare: sirul de int-uri, reprezentand numarul de celule de pe fiecare coloana,
+litera speciala, care poate fi C sau R si sugereaza daca prima coloana a
+fagurelui este coborata sau urcata si, daca exista, urmatoarele perechi de cate
+2 cifre, reprezentand coloana si linia unei celule in care se afla o matca.
+Am alocat o matrice, numita queens, in care vom memora locurile unde se afla
+fiecare matca.
+
+	Am folosit functia strtok pentru a delimita sirul citit in functie de spatii
+si caracterul NULL, asemeni modalitatii in care despartim o propozitie in
+cuvinte folosind ca delimitatori spatiul si punctul de la finalul enuntului.
+Daca sirul de caractere memorat nu este egal cu C sau cu R, il voi converti la
+int, folosind functia atoi, si il voi memora in vectorul cell_per_col. In cazul
+in care caracterul respectiv este chiar R sau C, memorez acest caracter in
+variabila row_type si verific daca mai exista alte cifre dupa aceasta litera.
+Daca exista, in matricea queens voi pune Q-uri pe locurile sugerate de
+respectivele linii si coloane.
+	
+	Pentru construirea fagurelui am folosit o matrice de caractere, care initial
+contine spatii pe fiecare pozitie, in care am stocat ulterior caracterele care
+vor fi efectiv printate. 
+
+	Construirea matricei:
+	O celula din fagure este in matricea principala o submatrice de dimensiune
+3x3. Pentru a identifica celulele fagurelui in matricea principala m-am referit
+la centrul acesteia (elementul din matricea principala unde se poate afla
+eventual matca). Toate celulele din fagure sunt centrate pe coloanele impare
+din matricea pricipala, iar liniile pe care acestea sunt centrate difera in
+functie de tipul coloanei curente (coborata sau ridicata).
+	Coloanele ridicate au prima celula din fagure centrata pe linia 1 din
+matricea principala, a doua pe linia 3, . . . (adica liniile impare din
+matricea principala).
+	Coloanele coborate au prima celula din fagure centrata pe linia 2,
+urmatoarea pe linia 4, etc (liniile pare din matricea principala)
+Am folosit variabila 'impar' pentru a stii daca coloana curenta este coborata
+sau ridicata. Daca prima coloana este coborata, urmatoarea va fi urcata si
+invers. Initial 'impar' are valoarea specificata de litera citita, urmand ca
+acesta sa fie alternat odata cu trecerea la urmatoarea coloana.
+	Tinand cont de aceste observatii, pentru fiecare coloana din fagure, am
+'desenat' celula cu celula in matricea principala. 
+
+	Avand in vedere claritatea si lizibilitatea codului, am abordat un coding
+style usor de urmarit. Indentarea este adecvata, numele de variabile sunt
+sugestive.

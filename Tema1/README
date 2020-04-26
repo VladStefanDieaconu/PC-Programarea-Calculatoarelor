@@ -1,0 +1,40 @@
+Dieaconu F. Vlad Stefan
+Grupa 311 CA
+Tema de casã 1 - Photo editor
+
+
+	Pentru a avea un cod usor de urmarit si aerisit am folosit urmatoarele functii
+pentru calcularea valorii saturatiei, a luminozitatii si a nuantei:
+	- computeHue
+	- computeSaturation
+	- computeValue
+
+	Pentru calcularea minumului si a maximului a trei numere am utilizat directiva
+define si operatorul ternar. 
+
+	Programul citeste pe rand fiecare pixel, tripletul (R, G, V), si pentru fiecare
+afiseaza valorile H, S, V corespunzatoare, aplicand si operatia selectata.
+
+	Primul pas in rezolvarea temei este citirea pixelilor care alcatuiesc imaginea, 
+definiti prin tripletul (R, G, B). Aceste valori apartin intervalului [0, 255] si deci 
+urmatorul pas este normarea acestora la intervalul [0, 1].
+
+	Urmatorul pas este transformarea modelului R G B in modelul H S V, folosind 
+formulele matematice oferite in enuntul temei.
+
+	Programul primeste o litera prin care se face selectia operatiei aplicate. In 
+functie de valoarea acesteia valorile H, S, V sunt modificate corespunzator.
+
+	Intrucat valorile trebuie sa ramana mereu in intervalul specificat, adica 
+intervalul [0, 1], in cazul in care una dintre valorile H, S, V este mai mare decat 1,
+respectiv mai mica decat 0, aceasta este inlocuita cu 1, respectiv cu 0.
+
+	Avand in vedere claritatea si lizibilitatea codului, am abordat un coding 
+style usor de urmarit. Indentarea este adecvata, numele de variabile sunt sugestive.
+
+
+
+	
+
+
+

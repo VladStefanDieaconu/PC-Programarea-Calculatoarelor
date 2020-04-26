@@ -1,0 +1,54 @@
+Dieaconu F. Vlad Stefan
+Grupa 311 CA
+
+Tema de casă 3 - Christmas
+
+	In rezolvarea temei am implementat urmatoarele functii:
+- read_map - functie pentru citirea hartii pe care se plimba Mos Craciun
+- compare_cities - functie care compara numele a doua orase
+- compare gifts - functie care compara doua cadouri pe baza numarului de
+aparitii a fiecarei jucarii. Daca 2 jucarii au acelasi numar de aparitii
+comparatia se face dupa numele jucariilor. 
+- make_step - functie care primeste o directie si modifica coordonatele in
+functie de aceasta pentru a ne deplasa pe harta.
+- print_santa_bag - functie care printeaza sacul mosului
+- sort_santa_bag - functie care sorteaza sacul mosului.
+- realloc_santa_bag - functie care dubleaza marimea sacului atunci cand acesta
+se umple (BONUS)
+- collect_toy - functie care colecteaza o jucarie din regiune si o adauga in
+sacul mosului.
+
+Am definit 3 structuri pentru a memora regiunile ("region"), cadourile
+("gifts"), iar sacul mosului l-am considerat un vector de structuri de pachete
+("packet"). Fiecare pachet este destinat unui anumit oras si contine mai multe
+tipuri de jucarii. Dupa cum se cere in bonus, aloc dinamic sacul mosului astfel
+incat prima data sa aiba loc doar cadouri pentru 2 orase. 
+
+Incep rezolvarea temei prin a citi datele de intrare si implicit coordonatele
+pozitiei de start. Aflat pe aceasta pozitie, verific daca regiunea pe care ma
+aflu are jucarii. Daca are, verific daca numele orasului pe care ma aflu se
+afla printre orasele din sacul mosului. Daca se afla, continui prin a verifica
+daca tipul de jucarie din aceasta regiune se afla printre tipurile de jucarii
+ale respectivului oras din sac. In cazul in care se afla, colectez jucaria pur
+si simplu.
+Daca jucaria respectiva nu se afla printre tipurile de jucarii ale respectivului
+oras din sacul mosului, adaug acest tip de jucarie si setez numarul de jucari la
+1. Daca orasul respectiv nu se afla printre orasele din sac, adaug orasul in
+sacul mosului dupa care adaug si tipul respectiv de jucarie la acel oras. De
+fiecare data cand adaug un oras nou in sacul mosului verific daca mai am loc in
+sac. In caz contrar folosesc functia realloc_santa_bag pentru a dubla marimea
+sacului mosului, asa cum se cere in BONUS. 
+Daca am facut mai multi pasi decat numarul maxim de pasi, ma opresc. In
+continuare calculez urmatoarea pozitie, pe baza directiei din regiunea unde ma
+aflu. Daca pozitia este una valida si nu am iesit din harta, incrementez numarul
+de pasi parcursi. In caz contrar afisez "TOO MUCH SNOW" si ma opresc.
+In final, folosesc functia sort_santa_bag pentru sortare. Prima data sortez
+vectorul de structuri santa_bag in functie de numele oraselor. In continuare,
+pentru fiecare oras, sortez vectorul de structuri gifts in functie de numarul
+de aparitii al fiecarui tip de jucarie (num_toy). Daca exista 2 jucarii cu
+acelasi numar de aparitii, sortarea se va face dupa numele tipului de jucarie.
+
+
+Avand in vedere claritatea si lizibilitatea codului, am abordat un coding
+style usor de urmarit. Indentarea este adecvata, numele de variabile sunt
+sugestive.
